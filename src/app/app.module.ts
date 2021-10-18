@@ -10,6 +10,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteService } from './clientes/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './clientes/form.component';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FormComponent } from './clientes/form.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [ClienteService],
