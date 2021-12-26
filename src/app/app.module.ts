@@ -10,6 +10,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteService } from './clientes/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './clientes/form.component';
+import { DataTablesModule } from "angular-datatables";
 import { FormsModule } from '@angular/forms'
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms'
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
   providers: [ClienteService],
   bootstrap: [AppComponent]

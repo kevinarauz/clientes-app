@@ -2,6 +2,6 @@ import { Cliente } from './cliente';
 
 //Se utiliza export para por usar la variable en otra clase
 export const CLIENTES: Cliente[] = [
-  { id: 1, nombre: 'kevin', apellido: 'arauz', email: 'kevin@gmail.com', createAt: '2021-07-17' },
-  { id: 2, nombre: 'leslie', apellido: 'arauz', email: 'liz@gmail.com', createAt: '2021-12-11' }
+  { _id: "1", cedula:0929542744, nombres: 'kevin', apellidos: 'arauz', edad: 24, fechaNacimiento:new Date() },
+  { _id: "2", cedula:0929542743, nombres: 'leslie', apellidos: 'arauz', edad: 20, fechaNacimiento:new Date() }
 ];

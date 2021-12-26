@@ -27,9 +27,12 @@ export class FormComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.clienteService.getCliente(id).subscribe((cliente) => this.cliente = cliente);
+        this.clienteService.getCliente(id).subscribe(
+          (cliente) => {
+            this.cliente = cliente;
+          });
       }
-    })
+    });
   }
 
   create(): void {
@@ -37,7 +40,7 @@ export class FormComponent implements OnInit {
       .subscribe(
         cliente => {
           this.router.navigate(['/clientes']);
-          swal.fire('Nuevo cliente', `El cliente ${cliente.nombre} ha sido creado con éxito`, 'success');
+          swal.fire('Nuevo cliente', `El cliente ${cliente.nombres} ha sido creado con éxito`, 'success');
         },
         err => {
           this.errores = err.error.errors as string[];
@@ -53,7 +56,7 @@ export class FormComponent implements OnInit {
       .subscribe(
         json => {
           this.router.navigate(['/clientes']);
-          swal.fire('Cliente Actualizado', `${json.mensaje}: ${json.cliente.nombre}`, 'success');
+          swal.fire('Cliente Actualizado', `${json.mensaje}: ${json.cliente.nombres}`, 'success');
         },
         err => {
           this.errores = err.error.errors as string[];
