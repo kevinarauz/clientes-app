@@ -20,7 +20,8 @@ export class ClientesComponent implements OnDestroy, OnInit {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2
+      pageLength: 2,
+      lengthMenu: [[2,5, 10, 20, -1], [2,5, 10, 20, 'Todos']]
     };
     this.clienteService.getClientes()
     .subscribe(clientes => {
