@@ -12,7 +12,7 @@
       <div class="form-group row">
         <label for="cedula" class="col-form-label col-sm-2">Cedula</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.cedula" name="cedula" #cedula="ngModel" type="text" (keypress)="numberOnly($event)" ng-maxlength="2" maxLength="10"> <!-- required minlength="4" -->
+          <input type="text" class="form-control" [(ngModel)]="cliente.cedula" name="cedula" #cedula="ngModel" type="text" (keypress)="numberOnly($event)" ng-maxlength="2" maxLength="10" required> <!-- required minlength="4" -->
           <div class="alert alert-danger" *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)">
             <div *ngIf="cedula.errors.required">
               Cédula es requerido
@@ -27,7 +27,7 @@
       <div class="form-group row">
         <label for="nombre" class="col-form-label col-sm-2">Nombres</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.nombres" name="nombres" #nombres="ngModel"> <!-- required minlength="4" -->
+          <input type="text" class="form-control" [(ngModel)]="cliente.nombres" name="nombres" #nombres="ngModel" required> <!-- required minlength="4" -->
           <div class="alert alert-danger" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">
             <div *ngIf="nombres.errors.required">
               Nombre es requerido
@@ -42,7 +42,7 @@
       <div class="form-group row">
         <label for="apellido" class="col-form-label col-sm-2">Apellidos</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.apellidos" name="apellidos" #apellido="ngModel"> <!-- required -->
+          <input type="text" class="form-control" [(ngModel)]="cliente.apellidos" name="apellidos" #apellido="ngModel" required> <!-- required -->
           <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
             <div *ngIf="apellido.errors.required">
               Apellido es requerido
@@ -54,7 +54,7 @@
       <div class="form-group row">
         <label for="edad" class="col-form-label col-sm-2">Edad</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.edad" name="edad" #edad="ngModel" type="number"> <!-- required -->
+          <input type="text" class="form-control" [(ngModel)]="cliente.edad" name="edad" #edad="ngModel" type="number" required> <!-- required -->
           <div class="alert alert-danger" *ngIf="edad.invalid && (edad.dirty || edad.touched)">
             <div *ngIf="edad.errors.required">
               Edad es requerido
@@ -67,7 +67,7 @@
         <label for="fechaNacimiento" class="col-form-label col-sm-2">Fecha de Nacimiento</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" [(ngModel)]="cliente.fechaNacimiento" [ngModel] ="cliente.fechaNacimiento | date:'yyyy-MM-dd'" (ngModelChange)="cliente.fechaNacimiento = $event"
-          name="fechaNacimiento" #fechaNacimiento="ngModel" type="date"> <!-- required -->
+          name="fechaNacimiento" #fechaNacimiento="ngModel" type="date" required> <!-- required -->
           <div class="alert alert-danger" *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)">
             <div *ngIf="fechaNacimiento.errors.required">
               Fecha de Nacimiento es requerido
