@@ -10,9 +10,9 @@
 
     <form #clienteForm="ngForm">
       <div class="form-group row">
-        <label for="nombre" class="col-form-label col-sm-2">Cedula</label>
+        <label for="cedula" class="col-form-label col-sm-2">Cedula</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="cliente.cedula" name="cedula" #cedula="ngModel" type="number"> <!-- required minlength="4" -->
+          <input type="text" class="form-control" [(ngModel)]="cliente.cedula" name="cedula" #cedula="ngModel" type="text" (keypress)="numberOnly($event)" ng-maxlength="2" maxLength="10"> <!-- required minlength="4" -->
           <div class="alert alert-danger" *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)">
             <div *ngIf="cedula.errors.required">
               Cédula es requerido

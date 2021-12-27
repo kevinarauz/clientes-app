@@ -1,6 +1,6 @@
 export class Cliente {
   _id: String;
-  cedula: number;
+  cedula: string;
   nombres: string;
   apellidos:string;
   edad: number;
