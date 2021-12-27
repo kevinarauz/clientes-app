@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { DirectivaComponent } from './directiva/directiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import { ClienteService } from './clientes/cliente.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +17,6 @@ import { FormsModule } from '@angular/forms'
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DirectivaComponent,
     ClientesComponent,
     FormComponent
   ],

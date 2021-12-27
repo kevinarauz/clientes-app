@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Bienvenidos a Angular';
-  curso = 'Spring 5 con angular 12';
+  curso = 'Mongo DB con angular 12';
 }
