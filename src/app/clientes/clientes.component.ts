@@ -48,13 +48,8 @@ export class ClientesComponent implements OnDestroy, OnInit {
       if (result.isConfirmed) {
         this.clienteService.delete(cliente._id).subscribe(
           _response => {
-            this.clientes = this.clientes.filter(cli => cli !== cliente)
-            swal.fire({
-              title: 'Cliente Eliminado!',
-              text: `Cliente ${cliente.nombres} eliminado con éxito.`,
-              icon: 'success',
-              confirmButtonColor: '#007bff'
-            })
+            window.location.reload();
+            this.clientes = this.clientes.filter(cli => cli !== cliente);
           }
         )
       }

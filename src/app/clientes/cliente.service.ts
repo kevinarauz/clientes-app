@@ -47,6 +47,7 @@ export class ClienteService {
       }),
       catchError(e => {
         let clientes: Cliente[];
+        console.log(clientes);
         return throwError(e);
       })
     );
@@ -74,6 +75,15 @@ export class ClienteService {
         this.router.navigate(['/clientes']);
         console.error(e.error.mensaje);
         swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  getClienteCedula(cedula: any): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.urlEndPoint+"clienteCedula"}/${cedula}`).pipe(
+      catchError(e => {
+        swal.fire('La cedula ingresada ya existe.', e.error.mensaje, 'error');
         return throwError(e);
       })
     );

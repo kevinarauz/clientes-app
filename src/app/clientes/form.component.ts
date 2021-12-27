@@ -36,19 +36,29 @@ export class FormComponent implements OnInit {
   }
 
   create(): void {
-    this.clienteService.create(this.cliente)
-      .subscribe(
-        cliente => {
-          this.router.navigate(['/clientes']);
-          swal.fire('Nuevo cliente', `El cliente ${cliente.nombres} ha sido creado con éxito`, 'success');
-        },
-        err => {
-          this.errores = err.error.errors as string[];
-          console.error('Código del error desde el backend: ' + err.status);
-          console.error(err.error.errors);
-          swal.fire('Error al crear cliente', err.status, 'error');
-        }
-      );
+  this.clienteService.getClienteCedula(this.cliente.cedula).subscribe(
+    (cliente) => {
+      if(cliente!=null){
+        swal.fire('Error al crear cliente', "La cedula ya existe", 'error');
+        return;
+      }
+    },err => {
+      console.log("Error: "+err);
+      swal.fire('Nuevo cliente', `El cliente ${this.cliente.nombres} ha sido creado con éxito`, 'success');
+      this.clienteService.create(this.cliente)
+        .subscribe(
+          cliente => {
+            console.log(cliente);
+            this.router.navigate(['/clientes']);
+          },
+          err => {
+            this.errores = err.error.errors as string[];
+            console.error('Código del error desde el backend: ' + err.status);
+            console.error(err.error.errors);
+            swal.fire('Error al crear cliente', err.status, 'error');
+          }
+        );
+    });
   }
 
   update(): void {
@@ -67,7 +77,7 @@ export class FormComponent implements OnInit {
       )
   }
 
-  numberOnly(event): boolean {
+  numberOnly(event: any): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
       return false;
