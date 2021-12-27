@@ -8,8 +8,8 @@
   <div class="card-header">{{ titulo }}</div>
   <div class="card-body">
 
-    <form #clienteForm="ngForm">
-      <div class="form-group row">
+    <form #clienteForm="ngForm" >
+      <div class="form-group row" *ngIf="!cliente._id">
         <label for="cedula" class="col-form-label col-sm-2">Cedula</label>
         <div class="col-sm-6">
           <input type="text" class="form-control" [(ngModel)]="cliente.cedula" name="cedula" #cedula="ngModel" type="text" (keypress)="numberOnly($event)" ng-maxlength="2" maxLength="10" required> <!-- required minlength="4" -->
